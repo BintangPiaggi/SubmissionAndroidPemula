@@ -35,12 +35,12 @@ public class MainActivity extends AppCompatActivity {
         adapter.setOnItemClickListener(new Adapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                Items movieItems = new Items();
-                movieItems.setImage(photoData.getResourceId(position, -1));
-                movieItems.setTitle(titleData[position]);
-                movieItems.setInfo(overviewData[position]);
+                Items mItems = new Items();
+                mItems.setImage(photoData.getResourceId(position, -1));
+                mItems.setTitle(titleData[position]);
+                mItems.setInfo(overviewData[position]);
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-                intent.putExtra("data", movieItems);
+                intent.putExtra("data", mItems);
                 startActivity(intent);
             }
         });
@@ -51,17 +51,17 @@ public class MainActivity extends AppCompatActivity {
         photoData = getResources().obtainTypedArray(R.array.club_image);
     }
     private void addItem() {
-        ArrayList<Items> movieItems = new ArrayList<>();
+        ArrayList<Items> mItems = new ArrayList<>();
 
         for (int i = 0; i < titleData.length; i++) {
-            Items movie = new Items();
-            movie.setImage(photoData.getResourceId(i, -1));
-            movie.setTitle(titleData[i]);
-            movie.setInfo(overviewData[i]);
-            movieItems.add(movie);
+            Items club = new Items();
+            club.setImage(photoData.getResourceId(i, -1));
+            club.setTitle(titleData[i]);
+            club.setInfo(overviewData[i]);
+            mItems.add(club);
         }
 
-        adapter.setMovieItems(movieItems);
+        adapter.setMovieItems(mItems);
     }
 }
 

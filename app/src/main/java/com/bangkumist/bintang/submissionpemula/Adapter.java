@@ -1,32 +1,27 @@
 package com.bangkumist.bintang.submissionpemula;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.CategoryViewHolder> {
     private Context context;
-    private ArrayList<Items> mExampleList;
+    private ArrayList<Items> mList;
     private OnItemClickListener mListener;
 
     public Adapter(Context context) {
         this.context = context;
-        mExampleList = new ArrayList<>();
+        mList = new ArrayList<>();
     }
 
-    public void setMovieItems(ArrayList<Items> movieItems) {
-        this.mExampleList = movieItems;
+    public void setMovieItems(ArrayList<Items> clubItems) {
+        this.mList = clubItems;
     }
 
 
@@ -64,7 +59,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.CategoryViewHolder> {
     }
 
     public Adapter(ArrayList<Items> exampleList) {
-        mExampleList = exampleList;
+        mList = exampleList;
     }
 
     @Override
@@ -76,7 +71,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.CategoryViewHolder> {
 
     @Override
     public void onBindViewHolder(CategoryViewHolder holder, int position) {
-        Items currentItem = mExampleList.get(position);
+        Items currentItem = mList.get(position);
 
         holder.mImageView.setImageResource(currentItem.getImage());
         holder.mTextView1.setText(currentItem.getTitle());
@@ -85,6 +80,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.CategoryViewHolder> {
 
     @Override
     public int getItemCount() {
-        return mExampleList.size();
+        return mList.size();
     }
 }
